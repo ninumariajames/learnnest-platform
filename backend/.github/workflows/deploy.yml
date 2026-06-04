@@ -21,10 +21,8 @@ steps:
       password: ${{ secrets.DOCKER_PASSWORD }}
 
   - name: Build Docker Image
-    run: |
-      docker build -t ninumaria/learnnest-backend:latest .
+    run: docker build -t ninumaria/learnnest-backend:latest .
 
   - name: Push Docker Image
-    run: |
-      docker push ninumaria/learnnest-backend:latest
+    run: docker push ninumaria/learnnest-backend:latest
 ```
