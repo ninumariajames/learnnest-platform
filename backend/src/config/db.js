@@ -1,7 +1,7 @@
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
-    host: 'mysql',
+    host: 'learnnest-mysql',
     user: 'root',
     password: 'root123',
     database: 'learnnest'
