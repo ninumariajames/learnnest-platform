@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const upload = require('../controllers/uploadcontroller');
+const db = require('../config/db');
 
 router.post(
     '/',
@@ -14,10 +15,27 @@ router.post(
             });
         }
 
-        res.json({
-            message: 'File uploaded successfully',
-            file: req.file.filename
-        });
+        const sql =
+            'INSERT INTO uploads (filename, original_name) VALUES (?, ?)';
+
+        db.query(
+            sql,
+            [req.file.filename, req.file.originalname],
+            (err, result) => {
+
+                if (err) {
+                    return res.status(500).json({
+                        error: err.message
+                    });
+                }
+
+                res.json({
+                    message: 'File uploaded successfully',
+                    uploadId: result.insertId,
+                    file: req.file.filename
+                });
+            }
+        );
     }
 );
 
