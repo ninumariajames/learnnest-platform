@@ -1,10 +1,13 @@
 const mysql = require('mysql2');
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
     host: 'learnnest-mysql',
     user: 'root',
     password: 'root123',
-    database: 'learnnest'
+    database: 'learnnest',
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
 
 connection.connect((err) => {
