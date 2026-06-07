@@ -1,10 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/', (req, res) => {
-    res.json({
-        message: 'Upload route working'
-    });
-});
+const upload = require('../controllers/uploadcontroller');
+
+router.post(
+    '/',
+    upload.single('file'),
+    (req, res) => {
+        res.json({
+            message: 'File uploaded successfully',
+            file: req.file.filename
+        });
+    }
+);
 
 module.exports = router;
