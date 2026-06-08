@@ -1,3 +1,6 @@
+const upload = require('../controllers/uploadcontroller');
+const db = require('../config/db');
+
 const express = require('express');
 const router = express.Router();
 
@@ -53,5 +56,48 @@ router.get('/:id/materials', (req, res) => {
         }
     );
 });
+
+router.post(
+    '/:id/materials',
+    verifyToken,
+    authorizeRole('admin'),
+    upload.single('file'),
+    (req, res) => {
+
+        const courseId = req.params.id;
+
+        if (!req.file) {
+            return res.status(400).json({
+                message: 'No file uploaded'
+            });
+        }
+
+        const sql =
+            'INSERT INTO uploads (filename, original_name, course_id) VALUES (?, ?, ?)';
+
+        db.query(
+            sql,
+            [
+                req.file.filename,
+                req.file.originalname,
+                courseId
+            ],
+            (err, result) => {
+
+                if (err) {
+                    return res.status(500).json({
+                        error: err.message
+                    });
+                }
+
+                res.json({
+                    message: 'Material uploaded successfully',
+                    uploadId: result.insertId,
+                    courseId
+                });
+            }
+        );
+    }
+);
 
 module.exports = router;
