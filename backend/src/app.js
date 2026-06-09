@@ -18,6 +18,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/uploads', express.static('uploads'));
+app.use('/api', enrollmentRoutes);
 
 app.get('/', (req, res) => {
     res.json({
