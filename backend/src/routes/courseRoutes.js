@@ -1,10 +1,8 @@
-const upload = require('../controllers/uploadcontroller');
-const db = require('../config/db');
-
 const express = require('express');
 const router = express.Router();
 
 const db = require('../config/db');
+const upload = require('../controllers/uploadcontroller');
 
 const verifyToken = require('../middleware/authMiddleware');
 const authorizeRole = require('../middleware/roleMiddleware');
@@ -47,9 +45,7 @@ router.get('/:id/materials', (req, res) => {
         [courseId],
         (err, results) => {
             if (err) {
-                return res.status(500).json({
-                    error: err.message
-                });
+                return res.status(500).json({ error: err.message });
             }
 
             res.json(results);
@@ -63,7 +59,6 @@ router.post(
     authorizeRole('admin'),
     upload.single('file'),
     (req, res) => {
-
         const courseId = req.params.id;
 
         if (!req.file) {
@@ -72,18 +67,14 @@ router.post(
             });
         }
 
-        const sql =
-            'INSERT INTO uploads (filename, original_name, course_id) VALUES (?, ?, ?)';
-
         db.query(
-            sql,
+            'INSERT INTO uploads (filename, original_name, course_id) VALUES (?, ?, ?)',
             [
                 req.file.filename,
                 req.file.originalname,
                 courseId
             ],
             (err, result) => {
-
                 if (err) {
                     return res.status(500).json({
                         error: err.message
