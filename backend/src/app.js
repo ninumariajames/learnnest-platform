@@ -7,6 +7,7 @@ const userRoutes = require('./routes/userRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const courseRoutes = require('./routes/courseRoutes');
 const uploadRoutes = require('./routes/uploadRoutes');
+const enrollmentRoutes = require('./routes/enrollmentRoutes');
 
 const app = express();
 
