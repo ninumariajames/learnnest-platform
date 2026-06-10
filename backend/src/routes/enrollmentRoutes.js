@@ -29,4 +29,36 @@ router.post(
     }
 );
 
+router.get(
+    '/my-courses',
+    verifyToken,
+    (req, res) => {
+
+        const userId = req.user.id;
+
+        const sql = `
+            SELECT c.*
+            FROM courses c
+            JOIN enrollments e
+            ON c.id = e.course_id
+            WHERE e.user_id = ?
+        `;
+
+        db.query(
+            sql,
+            [userId],
+            (err, results) => {
+
+                if (err) {
+                    return res.status(500).json({
+                        error: err.message
+                    });
+                }
+
+                res.json(results);
+            }
+        );
+    }
+);
+
 module.exports = router;
