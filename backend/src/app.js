@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const enrollmentRoutes = require('./routes/enrollmentRoutes');
-
+const assignmentRoutes = require('./routes/assignmentRoutes');
 require('./config/db');
 
 const authRoutes = require('./routes/authRoutes');
@@ -21,6 +21,7 @@ app.use('/api/courses', courseRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/uploads', express.static('uploads'));
 app.use('/api', enrollmentRoutes);
+app.use('/api', assignmentRoutes);
 
 app.get('/', (req, res) => {
     res.json({
