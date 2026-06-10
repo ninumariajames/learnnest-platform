@@ -83,4 +83,37 @@ router.post(
     }
 );
 
+router.get(
+    '/my-submissions',
+    verifyToken,
+    (req, res) => {
+
+        const userId = req.user.id;
+
+        db.query(
+            `
+            SELECT
+                s.id,
+                s.assignment_id,
+                s.filename,
+                s.submitted_at,
+                s.grade
+            FROM submissions s
+            WHERE s.user_id = ?
+            `,
+            [userId],
+            (err, results) => {
+
+                if (err) {
+                    return res.status(500).json({
+                        error: err.message
+                    });
+                }
+
+                res.json(results);
+            }
+        );
+    }
+);
+
 module.exports = router;
