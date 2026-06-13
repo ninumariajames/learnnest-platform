@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const enrollmentRoutes = require('./routes/enrollmentRoutes');
 const assignmentRoutes = require('./routes/assignmentRoutes');
 const submissionRoutes = require('./routes/submissionRoutes');
@@ -12,6 +13,8 @@ const courseRoutes = require('./routes/courseRoutes');
 const uploadRoutes = require('./routes/uploadRoutes');
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 
