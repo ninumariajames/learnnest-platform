@@ -126,7 +126,7 @@ http://3.109.60.186:3000
 * AWS Deployment: Complete
 * CI/CD: Complete
 
-##Project Structure
+## Project Structure
 
 learnnest-platform/
 ├── backend/
@@ -136,7 +136,7 @@ learnnest-platform/
 ├── .github/workflows/
 └── README.md
 
-##Deployment Architecture
+## Deployment Architecture
 
 Frontend (React + Vite)
         │
