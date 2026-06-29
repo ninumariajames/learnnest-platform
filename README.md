@@ -10,7 +10,7 @@
 
 
 
-LearnNest is a cloud-deployed Learning Management System (LMS) built using Node.js, Express.js, MySQL, Docker, AWS EC2, and GitHub Actions.
+A cloud-based Learning Management System (LMS) developed using DevSecOps practices. LearnNest enables students to register, log in, access their learning dashboard, browse courses, watch educational videos, manage assignments, and track learning progress. The application is deployed on AWS EC2 with an Nginx web server and uses GitHub for version control and CI/CD.
 
 
 
@@ -18,23 +18,25 @@ LearnNest is a cloud-deployed Learning Management System (LMS) built using Node.
 
 
 
-\* JWT Authentication
+* User Registration
+* User Login with JWT Authentication
+* Student Dashboard
+* Student Profile
+* Course Management
+* Assignment Management
+* Video Learning Module
+* Progress Tracking
+* Responsive React Frontend
+* RESTful Backend APIs
+* MySQL Database Integration
+* Dockerized Deployment
+* CI/CD using GitHub Actions
+* AWS EC2 Deployment
+* Nginx Web Server
 
-\* Role-Based Authorization
 
-\* Course Enrollment
 
-\* Assignment Creation
 
-\* Assignment Submission
-
-\* Grading System
-
-\* Dockerized Deployment
-
-\* CI/CD with GitHub Actions
-
-\* AWS EC2 Hosting
 
 
 
@@ -42,13 +44,23 @@ LearnNest is a cloud-deployed Learning Management System (LMS) built using Node.
 
 
 
+#### Frontend
+
+
+
+* React.js
+* Vite
+* React Router
+* Axios
+
+
+
 #### Backend
 
 
 
-\* Node.js
-
-\* Express.js
+* Node.js
+* Express.js
 
 
 
@@ -64,13 +76,13 @@ LearnNest is a cloud-deployed Learning Management System (LMS) built using Node.
 
 
 
-\* Docker
+* Docker
+* Docker Hub
+* GitHub Actions
+* AWS EC2
+* Ngnix
 
-\* Docker Hub
 
-\* GitHub Actions
-
-\* AWS EC2
 
 ### 
 
@@ -100,44 +112,18 @@ LearnNest is a cloud-deployed Learning Management System (LMS) built using Node.
 
 ### Deployment
 
-
-
-Frontend: 
-
+**Frontend**
 
 http://3.109.60.186
 
-
-
-Backend URL:
-
-
+**Backend API**
 
 http://3.109.60.186:3000
 
-
-
 ### Status
 
-
-
-Backend: Complete
-
-
-
-Database: Complete
-
-
-
-Dockerization: Complete
-
-
-
-AWS Deployment: Complete
-
-
-
-CI/CD: Complete
-
-
-
+* Backend: Complete
+* Database: Complete
+* Dockerization: Complete
+* AWS Deployment: Complete
+* CI/CD: Complete
