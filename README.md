@@ -80,7 +80,7 @@ A cloud-based Learning Management System (LMS) developed using DevSecOps practic
 * Docker Hub
 * GitHub Actions
 * AWS EC2
-* Ngnix
+* Nginx
 
 
 
@@ -113,11 +113,9 @@ A cloud-based Learning Management System (LMS) developed using DevSecOps practic
 ### Deployment
 
 **Frontend**
-
 http://3.109.60.186
 
 **Backend API**
-
 http://3.109.60.186:3000
 
 ### Status
@@ -127,3 +125,26 @@ http://3.109.60.186:3000
 * Dockerization: Complete
 * AWS Deployment: Complete
 * CI/CD: Complete
+
+##Project Structure
+
+learnnest-platform/
+├── backend/
+├── learnnest-ui/
+├── infrastructure/
+├── docs/
+├── .github/workflows/
+└── README.md
+
+##Deployment Architecture
+
+Frontend (React + Vite)
+        │
+        ▼
+AWS EC2 Instance
+        │
+     Nginx Server
+        │
+Backend (Node.js + Express)
+        │
+MySQL Database
